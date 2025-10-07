@@ -1,18 +1,6 @@
-# Hardhat(Solidity Smart Contract) Project Helper(Hardhat Ignition).
+# Xento Contracts.
 
-A Smart Contract(Hardhat Ignition) helper project - demonstrating Solidity smart contract development, deployment and interaction - with only the Hardhat Framework. A free gem-resource for bootstrapping/starting similar projects.
-
-> Default live network(testnet) used on template is **Sepolia**.
-
-## Key Dependencies/Additions.
-
-1. **prettier** and **prettier-plugin-solidity** - for code formatting.
-2. **hardhat-contract-sizer** - generate the sizes of available smart contracts, and outputs the result in console whenever the compilation and contract deployments are run. Prolly on some other commands as well.
-3. **hardhat-gas-reporter** - for gas calculation and reporting.
-4. **solidity-coverage** - for assessing the measure of test coverage on the smart contracts.
-5. **solhint** - for Solidity(smart contracts) linting.
-6. **dotenv** 😒.
-7. **solidity-docgen** - for documentation generation using Natspec comments
+Solidity Smart contracts for the Xento Dapp project.
 
 ## Important commands.
 
@@ -53,8 +41,3 @@ For linting Solidity(smart contract) code with solhint(see the `lint` script ins
 Generates markdown documentations(using Natspec comments that has been added to the contracts) - thanks to OpenZepellin's `solidity-docgen` utility/library
 
 > **The generated docs can be found inside the `docs` folder.**
-
-
-
-
-

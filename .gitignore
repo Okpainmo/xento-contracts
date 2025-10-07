@@ -23,3 +23,11 @@ ignition/deployments/chain-31337
 contracts/.states
 contracts/artifacts
 contracts/.deps
+
+
+# other
+.vscode
+bash.exe.stackdump
+Warp.md
+.wake
+notes

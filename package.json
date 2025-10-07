@@ -9,6 +9,9 @@
     "solidity-coverage": "^0.8.16"
   },
   "dependencies": {
+    "@reown/walletkit": "^1.2.11",
+    "@walletconnect/core": "^2.21.10",
+    "@walletconnect/utils": "^2.21.10",
     "dotenv": "^17.2.1",
     "solhint": "^6.0.0",
     "solidity-docgen": "^0.6.0-beta.36"
