@@ -9,6 +9,8 @@
     "solidity-coverage": "^0.8.16"
   },
   "dependencies": {
+    "@chainlink/contracts": "^1.2.0",
+    "@openzeppelin/contracts": "^5.4.0",
     "@reown/walletkit": "^1.2.11",
     "@walletconnect/core": "^2.21.10",
     "@walletconnect/utils": "^2.21.10",
