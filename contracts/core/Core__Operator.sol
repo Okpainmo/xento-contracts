@@ -21,11 +21,12 @@ contract Core__Operator is Base__Operator {
         }
     }
 
-    constructor(address _adminManagementCoreContractAddress) {
+    constructor(address _adminManagementCoreContractAddress, address _treasuryWalletAddress) {
         _verifyIsAddress(_adminManagementCoreContractAddress);
 
         s_adminManagementCoreContractAddress = _adminManagementCoreContractAddress;
         s_adminManagementContract__Base = IAdminManagement__Base(s_adminManagementCoreContractAddress);
+        s_treasuryWalletAddress = _treasuryWalletAddress;
 
         i_owner = msg.sender;
 
@@ -87,9 +88,51 @@ contract Core__Operator is Base__Operator {
         s_tokenDecimals = _tokenDecimals;
         s_ERC20Contract = IERC20(s_ERC20TokenAddress);
     }
+    
+    function updateXNTTokenData(address _tokenAddress) public {
+        if (
+            !s_adminManagementContract__Base.checkIsAdmin(msg.sender)
+        ) {
+            revert OperatorCore__AccessDenied_AdminOnly();
+        }
+
+        if (_tokenAddress == address(0)) {
+            revert OperatorCore__ZeroAddressError();
+        }
+
+        // if (_tokenDecimals < 1) {
+        //     revert OperatorCore__ZeroTokenDecimalsError();
+        // }
+
+        s_XNTTokenAddress  = _tokenAddress;
+        // s_tokenDecimals = _tokenDecimals;
+        s_XNTContract = IERC20(s_XNTTokenAddress);
+    }
+
+    function updateTreasuryWalletAddress(address _address) public {
+        if (
+            !s_adminManagementContract__Base.checkIsAdmin(msg.sender)
+        ) {
+            revert OperatorCore__AccessDenied_AdminOnly();
+        }
+
+        if (_address == address(0)) {
+            revert OperatorCore__ZeroAddressError();
+        }
+
+        s_treasuryWalletAddress = _address;
+    }
+
+    function getTreasuryWalletAddress() public view returns (address) {
+        return s_treasuryWalletAddress;
+    }
 
     function getERC20TokenAddress() public view returns (address) {
         return s_ERC20TokenAddress;
+    }
+
+    function getXNTTokenAddress() public view returns (address) {
+        return s_XNTTokenAddress;
     }
 
     function getERC20TokenDecimals() public view returns (uint256) {
