@@ -6,6 +6,7 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interf
 
 library ETHUSDConverter {
     function getETHPrice() public view returns (uint256) {
+        // todo: make the feed address dynamic to permit testing and usage on multiple chains
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         (, int price,,,) = priceFeed.latestRoundData();
 

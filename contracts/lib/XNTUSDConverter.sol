@@ -4,8 +4,9 @@ pragma solidity >=0.8.2 <0.9.0;
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 library XNTUSDConverter {
-    // XNT is only a test-net token and not a real token - the pricefeed for SNX(the Synthetix protocol token) is used instead 
+    // XNT is only a test-net token and not a real token - the price feed for SNX(the Synthetix protocol token) is used instead 
     function getXNTPrice() public view returns (uint256) {
+        // todo: make the feed address dynamic to permit testing and usage on multiple chains
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0xc0F82A46033b8BdBA4Bb0B0e28Bc2006F64355bC);
         (, int price,,,) = priceFeed.latestRoundData();
 
